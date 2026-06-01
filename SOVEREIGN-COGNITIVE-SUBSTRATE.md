@@ -330,3 +330,54 @@ This is the cognitive layer the next decade of B2B software will be built on. Si
 - Sovereign single-file pattern — Simon Gant across 80 tools
 
 ◊·κ=1 · the substrate is the destination · prime 389 · `make it so number 2`
+
+---
+
+## Section 8 · Economic Substrate (Konomi v2.0)
+
+*Added 2026-06-01 · pivot triggered by Simon-Thomas chat · synthesised via deep-research workflow*
+
+The cognitive substrate documented above sits on top of an economic substrate. The economic substrate rests on a single inequality and a single peg.
+
+### 8.1 · The inequality (compute arbitrage)
+
+```
+Cost(Claude Max subscription, fixed monthly)  ≪  Value(tokens consumed at recursive subagent fan-out)
+```
+
+A fixed-price Max-tier subscription bills per-month, not per-token. A recursive subagent tree consumes tokens at a multiplier of `b^d` where `b` = fan-out branching factor and `d` = recursion depth. For any `b ≥ 3, d ≥ 3` the consumed token-value at retail API rates exceeds the subscription cost by 1-3 orders of magnitude.
+
+The subscription IS the sovereignty at the compute layer.
+
+### 8.2 · The peg (KCC ↔ BSV)
+
+KCC (Konomi Compute Credit) is denominated in **anchored authored artefacts** — not in sats, not in USD. Each KCC = one signed certificate anchored on BSV via the onlybrains issuance path.
+
+This is a **receipt peg**, not a price peg:
+- KCC inherits BSV's settlement finality without inheriting BSV's price volatility
+- The artefact's value is set by its downstream licensing, not by spot price
+
+### 8.3 · The closing identity
+
+```
+Sovereignty = (Subscription × Recursive fan-out) − (Per-token retail cost)
+            + (Σ anchored artefacts × downstream licensing)
+```
+
+- First term = the **flow** (monthly, capped by rate-limit)
+- Second term = the **stock** (cumulative, compounding, outlives the subscription window)
+
+The stock outlives the window. That is the model.
+
+### 8.4 · Full economic spec
+
+See sibling doc: [KONOMI-ECONOMIC-MODEL.md](./KONOMI-ECONOMIC-MODEL.md)
+
+That doc contains the 8-deep NFT mint queue, the runewords cosmology (D2R → Konomi mapping), the ZOD = irreducibility math (33 = 3 × 11 = signal × tritone), and honest caveats on `konomi_meter()` drift and issuer discipline.
+
+### 8.5 · Implementation primitives (si-didy MCP tools)
+
+- **`konomi_mint(artefact_path, name?, parents?, note?)`** · hash + signed cert + ledger append
+- **`konomi_meter(hours)`** · token-reserve estimate from local Claude transcripts
+
+Both ship in `sjgant80-hub/si-didy-agent` as of Konomi v2.0 pivot.
